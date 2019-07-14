@@ -2,7 +2,7 @@ package ru.sberbank.school.users.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.sberbank.school.users.model.UserModel;
+import ru.sberbank.school.feign.model.UserModel;
 import ru.sberbank.school.users.service.UsersService;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;

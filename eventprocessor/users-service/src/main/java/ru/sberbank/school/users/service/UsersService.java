@@ -1,6 +1,6 @@
 package ru.sberbank.school.users.service;
 
-import ru.sberbank.school.users.model.UserModel;
+import ru.sberbank.school.feign.model.UserModel;
 
 public interface UsersService {
 

@@ -2,8 +2,8 @@ package ru.sberbank.school.users.converter;
 
 import lombok.NonNull;
 import org.springframework.stereotype.Component;
+import ru.sberbank.school.feign.model.UserModel;
 import ru.sberbank.school.users.entity.User;
-import ru.sberbank.school.users.model.UserModel;
 
 @Component
 public class UsersConverter {

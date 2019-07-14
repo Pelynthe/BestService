@@ -12,14 +12,14 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 public interface UsersClient {
 
 	@RequestMapping(method = RequestMethod.GET, value = "/user/{userId}", produces = APPLICATION_JSON_UTF8_VALUE)
-	UserModel getUser(@PathVariable("userId") Long userId);
+	UserModel getUser(@PathVariable("userId") long userId);
 
 	@RequestMapping(method = RequestMethod.POST, value = "/user")
 	void createUser(UserModel user);
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/user/{userId}")
-	void updateUser(@PathVariable("userId") Long userId, UserModel user);
+	void updateUser(@PathVariable("userId") long userId, UserModel user);
 
-	@RequestMapping(method = RequestMethod.DELETE, value = "/users/{userId}")
-	void deleteUser(@PathVariable("userId") Long userId);
+	@RequestMapping(method = RequestMethod.DELETE, value = "/user/{userId}")
+	void deleteUser(@PathVariable("userId") long userId);
 }

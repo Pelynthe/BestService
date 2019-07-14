@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+import ru.sberbank.school.feign.model.UserModel;
 import ru.sberbank.school.users.converter.UsersConverter;
 import ru.sberbank.school.users.entity.User;
-import ru.sberbank.school.users.model.UserModel;
 import ru.sberbank.school.users.repository.UsersRepository;
 
 import java.util.Optional;
