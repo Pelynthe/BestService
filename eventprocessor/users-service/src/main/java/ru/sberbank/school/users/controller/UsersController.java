@@ -22,16 +22,16 @@ public class UsersController {
 
     @GetMapping(path = "{id}", produces = APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public UserModel getUserById(@PathVariable long id) {
-        return usersService.getById(id);
+    public UserModel getUser(@PathVariable long id) {
+        return usersService.get(id);
     }
 
-    @PutMapping
+    @PostMapping
     public void createUser(@RequestBody UserModel userModel) {
         usersService.create(userModel);
     }
 
-    @PostMapping(path = "{id}")
+    @PutMapping(path = "{id}")
     public void updateUser(@RequestBody UserModel userModel) {
         usersService.update(userModel);
     }

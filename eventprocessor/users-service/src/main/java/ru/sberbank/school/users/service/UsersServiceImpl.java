@@ -20,7 +20,7 @@ public class UsersServiceImpl implements UsersService {
     private final UsersConverter converter;
 
     @Override
-    public UserModel getByName(String userName) {
+    public UserModel get(String userName) {
         Assert.hasLength(userName, "User name must not be empty");
 
 //        User user = repository.findUserByUsernameIn(userName);
@@ -29,9 +29,8 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public UserModel getById(long id) {
+    public UserModel get(long id) {
         Optional<User> user = repository.findById(id);
-        user.ifPresent(converter::convertToModel);
         return user.isPresent()
                 ? converter.convertToModel(user.get())
                 : new UserModel();

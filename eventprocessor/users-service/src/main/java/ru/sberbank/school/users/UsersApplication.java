@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 //@EnableFeignClients
 @EnableEurekaClient
 @SpringBootApplication(exclude = {LiquibaseAutoConfiguration.class})
-//@ComponentScan("ru.sberbank.school.users.repository")
+@ComponentScan("ru.sberbank.school.users")
 public class UsersApplication {
     public static void main(String[] args) {
         SpringApplication.run(UsersApplication.class, args);

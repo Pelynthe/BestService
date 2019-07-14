@@ -24,6 +24,7 @@
         <module>news-service</module>
         <module>users-service</module>
         <module>web-service</module>
+        <module>feign-example</module>
     </modules>
 
     <properties>

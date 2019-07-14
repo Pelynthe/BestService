@@ -1,4 +1,4 @@
-package ru.sberbank.school.users.model;
+package ru.sberbank.school.feign.model;
 
 import lombok.Builder;
 import lombok.Data;
