@@ -1,17 +1,16 @@
 package ru.sberbank.school.users.entity;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 
-import static javax.persistence.GenerationType.SEQUENCE;
 import static javax.persistence.GenerationType.TABLE;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 @Entity
 @Table(name = "users")

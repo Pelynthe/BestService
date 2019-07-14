@@ -1,6 +1,7 @@
 package ru.sberbank.school.users.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import ru.sberbank.school.users.converter.UsersConverter;
@@ -8,15 +9,18 @@ import ru.sberbank.school.users.entity.User;
 import ru.sberbank.school.users.model.UserModel;
 import ru.sberbank.school.users.repository.UsersRepository;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class UsersServiceImpl implements UsersService {
 
-//    private final UsersRepository repository;
+    @Autowired
+    private UsersRepository repository;
     private final UsersConverter converter;
 
     @Override
-    public UserModel findByName(String userName) {
+    public UserModel getByName(String userName) {
         Assert.hasLength(userName, "User name must not be empty");
 
 //        User user = repository.findUserByUsernameIn(userName);
@@ -25,16 +29,12 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public UserModel findById(long id) {
-        System.out.println("EEy!");
-//        return null;
-        return UserModel.builder()
-                .id(1)
-                .username("asd")
-                .email("asd")
-                .firstName("asd")
-                .lastName("asd")
-                .build();
+    public UserModel getById(long id) {
+        Optional<User> user = repository.findById(id);
+        user.ifPresent(converter::convertToModel);
+        return user.isPresent()
+                ? converter.convertToModel(user.get())
+                : new UserModel();
     }
 
     @Override

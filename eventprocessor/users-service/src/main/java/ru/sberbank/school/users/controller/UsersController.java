@@ -17,13 +17,13 @@ public class UsersController {
 /*    @GetMapping(path = "{name}", produces = APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
     public UserModel getUserByName(@PathVariable String name) {
-        return usersService.findByName(name);
+        return usersService.getByName(name);
     }*/
 
     @GetMapping(path = "{id}", produces = APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
     public UserModel getUserById(@PathVariable long id) {
-        return usersService.findById(id);
+        return usersService.getById(id);
     }
 
     @PutMapping
@@ -31,12 +31,12 @@ public class UsersController {
         usersService.create(userModel);
     }
 
-    @PostMapping(path = "/{id}")
+    @PostMapping(path = "{id}")
     public void updateUser(@RequestBody UserModel userModel) {
         usersService.update(userModel);
     }
 
-    @DeleteMapping(path = "/{id}")
+    @DeleteMapping(path = "{id}")
     public void deleteUser(@PathVariable long id) {
         usersService.delete(id);
     }

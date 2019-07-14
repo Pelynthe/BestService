@@ -15,8 +15,8 @@ import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 @Configuration
-@EnableJpaRepositories("ru.sberbank.school.repository")
-@EntityScan("ru.sberbank.school.entity")
+@EntityScan("ru.sberbank.school.users.entity")
+@EnableJpaRepositories("ru.sberbank.school.users.repository")
 @EnableTransactionManagement
 @PropertySource("classpath:application.properties")
 public class UsersConfiguration {

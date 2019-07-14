@@ -4,9 +4,9 @@ import ru.sberbank.school.users.model.UserModel;
 
 public interface UsersService {
 
-    UserModel findByName(String accountName);
+    UserModel getByName(String accountName);
 
-    UserModel findById(long id);
+    UserModel getById(long id);
 
     boolean create(UserModel user);
 
