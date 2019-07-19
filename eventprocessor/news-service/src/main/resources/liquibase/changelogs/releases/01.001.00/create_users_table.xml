@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="create users sequence" author="by liquibase" context="01.001.00">
+        <createSequence incrementBy="10"
+                        cycle="false"
+                        ordered="true"
+                        sequenceName="USER_SEQ"
+                        startValue="100"/>
+        <rollback>
+            <sql>
+                DROP SEQUENCE USER_SEQ;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="create users table" author="by liquibase" context="01.001.00">
+        <comment>
+            Создание таблицы USERS
+        </comment>
+        <createTable tableName="users" remarks="Таблица пользователей">
+
+            <column name="id" type="BIGINT" autoIncrement = "true" remarks="Уникальный идентификатор">
+                <constraints nullable="false" unique="true" uniqueConstraintName="UK_ID_USERS"/>
+            </column>
+
+            <column name="username" type="VARCHAR(255)" remarks="Имя пользователя">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+            <column name="email" type="VARCHAR(255)" remarks="Почта">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="first_name" type="VARCHAR(255)" remarks="Имя"/>
+
+            <column name="last_name" type="VARCHAR(255)" remarks="Фамилия"/>
+
+        </createTable>
+
+        <rollback>
+            <sql>
+                DROP TABLE USERS;
+            </sql>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
+
+

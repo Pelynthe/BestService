@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="add initial data to users" author="by liquibase" context="01.001.00">
+        <comment>Добавление первоначального заполнения пользователей</comment>
+        <sql>
+            INSERT INTO USERS (USERNAME, EMAIL) VALUES
+            ('Jason', 'Statham@a.com');
+        </sql>
+        <rollback>
+            <sql>
+                DELETE FROM USERS WHERE USERNAME IN ('Jason');
+            </sql>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
+
+
