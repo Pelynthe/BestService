@@ -8,23 +8,25 @@ import ru.sberbank.school.feign.model.CommentsModel;
 @Component
 public class CommentsConverter {
 
-    public CommentsModel convertToModel (@NonNull Comment user) {
+    public CommentsModel convertToModel (@NonNull Comment comment) {
         return CommentsModel.builder()
-                .id(user.getId())
-                .username(user.getUsername())
-                .email(user.getEmail())
-                .firstName(user.getFirstName())
-                .lastName(user.getLastName())
+                .id(comment.getId())
+                .newsId(comment.getNewsId())
+                .eventId(comment.getEventId())
+                .userId(comment.getUserId())
+                .body(comment.getBody())
+                .timestamp(comment.getTimestamp())
                 .build();
     }
 
-    public Comment convertToEntity (@NonNull CommentsModel user) {
+    public Comment convertToEntity (@NonNull CommentsModel comment) {
         return Comment.builder()
-                .id(user.getId())
-                .username(user.getUsername())
-                .email(user.getEmail())
-                .firstName(user.getFirstName())
-                .lastName(user.getLastName())
+                .id(comment.getId())
+                .newsId(comment.getNewsId())
+                .eventId(comment.getEventId())
+                .userId(comment.getUserId())
+                .body(comment.getBody())
+                .timestamp(comment.getTimestamp())
                 .build();
     }
 }

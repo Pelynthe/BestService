@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.sberbank.school.feign.model.CommentsModel;
 import ru.sberbank.school.comment.service.CommentsService;
 
+import java.util.List;
+
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 
 @RestController
@@ -20,16 +22,16 @@ public class CommentsController {
         return commentsService.get(id);
     }
 
-    @GetMapping(path = "event{id}", produces = APPLICATION_JSON_UTF8_VALUE)
-    @ResponseBody
-    public CommentsModel getCommentsByEvent(@PathVariable long id) {
-        return commentsService.get(id);
-    }
-
     @GetMapping(path = "news{id}", produces = APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public CommentsModel getCommentsByNews(@PathVariable long id) {
-        return commentsService.get(id);
+    public List<CommentsModel> getCommentsByNews(@PathVariable long id) {
+        return commentsService.getByNews(id);
+    }
+
+    @GetMapping(path = "event{id}", produces = APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public List<CommentsModel> getCommentsByEvent(@PathVariable long id) {
+        return commentsService.getByEvent(id);
     }
 
     @PostMapping

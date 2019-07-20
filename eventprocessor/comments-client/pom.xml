@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>comment-client</artifactId>
+    <artifactId>comments-client</artifactId>
 
     <dependencies>
         <dependency>

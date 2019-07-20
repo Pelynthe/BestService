@@ -1,9 +1,10 @@
 package ru.sberbank.school.comment.entity;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 
 import static javax.persistence.GenerationType.TABLE;
 
@@ -13,26 +14,28 @@ import static javax.persistence.GenerationType.TABLE;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 @Entity
-@Table(name = "users")
-//@SequenceGenerator(name = "users_seq", sequenceName = "users_seq", allocationSize = 5)
+@Table(name = "comments")
 public class Comment {
 
     @Id
-//    @GeneratedValue(strategy = SEQUENCE, generator = "USERS_SEQ")
     @GeneratedValue(strategy = TABLE, generator = "increment")
     @Column(name = "id")
     private long id;
 
-    @Column(name = "username")
-    private String username;
+    @Column(name = "news_id")
+    private long newsId;
 
-    @Email
-    @Column(name = "email")
-    private String email;
+    @Column(name = "event_id")
+    private long eventId;
 
-    @Column(name = "first_name")
-    private String firstName;
+    @Column(name = "user_id")
+    private long userId;
 
-    @Column(name = "last_name")
-    private String lastName;
+    @Column(name = "body")
+    private String body;
+
+    @CreationTimestamp
+    @UpdateTimestamp
+    @Column(name = "timestamp")
+    private String timestamp;
 }

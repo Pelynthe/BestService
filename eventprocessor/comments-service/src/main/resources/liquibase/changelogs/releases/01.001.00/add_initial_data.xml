@@ -6,10 +6,10 @@
     http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <changeSet id="add initial data to users" author="by liquibase" context="01.001.00">
-        <comment>Добавление первоначального заполнения пользователей</comment>
+        <comment>Добавление первоначального заполнения комментариев</comment>
         <sql>
-            INSERT INTO USERS (USERNAME, EMAIL) VALUES
-            ('Jason', 'Statham@a.com');
+            INSERT INTO COMMENTS (NEWS_ID, EVENT_ID, USER_ID, BODY) VALUES
+            ('0', '0', '0', 'This is first comment');
         </sql>
         <rollback>
             <sql>

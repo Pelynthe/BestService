@@ -5,6 +5,5 @@
 	        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <include file="create_users_table.xml" relativeToChangelogFile="true"/>
-    <include file="add_initial_data.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

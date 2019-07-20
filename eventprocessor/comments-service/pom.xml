@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>comment-service</artifactId>
+    <artifactId>comments-service</artifactId>
 
     <dependencies>
         <dependency>
@@ -36,7 +36,7 @@
         </dependency>
         <dependency>
             <groupId>ru.sberbank.school</groupId>
-            <artifactId>comment-client</artifactId>
+            <artifactId>comments-client</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

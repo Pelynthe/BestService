@@ -4,9 +4,12 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import ru.sberbank.school.comment.entity.Comment;
 
+import java.util.List;
+
 @Repository
 public interface CommentsRepository extends CrudRepository<Comment, Long> {
 
-//    Optional<UserModel> findUserByUsernameIn(String username);
-//    Comment findUserByUsernameIn(String username);
+    List<Comment> findCommentsByNewsId(long newsId);
+
+    List<Comment> findCommentsByEventId(long eventId);
 }

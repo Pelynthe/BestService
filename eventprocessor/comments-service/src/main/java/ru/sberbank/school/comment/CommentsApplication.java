@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.ComponentScan;
 
 @EnableEurekaClient
-@SpringBootApplication(exclude = {LiquibaseAutoConfiguration.class})
+@SpringBootApplication//(exclude = {LiquibaseAutoConfiguration.class})
 @ComponentScan("ru.sberbank.school.comment")
 public class CommentsApplication {
     public static void main(String[] args) {

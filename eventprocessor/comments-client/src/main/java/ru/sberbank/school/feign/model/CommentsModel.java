@@ -11,9 +11,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CommentsModel {
 
-	long id;
-	String username;
-	String email;
-	String firstName;
-	String lastName;
+	private long id;
+	private long newsId;
+	private long eventId;
+	private long userId;
+	private String body;
+	private String timestamp;
+	
 }
