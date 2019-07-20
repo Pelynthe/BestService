@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -16,6 +18,6 @@ public class CommentsModel {
 	private long eventId;
 	private long userId;
 	private String body;
-	private String timestamp;
-	
+	private Timestamp timestamp;
+
 }

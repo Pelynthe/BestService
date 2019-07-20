@@ -12,9 +12,9 @@ public interface CommentsService {
 
     List<CommentsModel> getByEvent(long id);
 
-    boolean create(CommentsModel user);
+    void create(CommentsModel user);
 
-    boolean update(CommentsModel user);
+    void update(CommentsModel user);
 
-    boolean delete(long id);
+    void delete(long id);
 }

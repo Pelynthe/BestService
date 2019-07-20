@@ -6,6 +6,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 
+import java.sql.Timestamp;
+
 import static javax.persistence.GenerationType.TABLE;
 
 @Data
@@ -18,7 +20,6 @@ import static javax.persistence.GenerationType.TABLE;
 public class Comment {
 
     @Id
-    @GeneratedValue(strategy = TABLE, generator = "increment")
     @Column(name = "id")
     private long id;
 
@@ -35,7 +36,6 @@ public class Comment {
     private String body;
 
     @CreationTimestamp
-    @UpdateTimestamp
     @Column(name = "timestamp")
-    private String timestamp;
+    private Timestamp timestamp;
 }
