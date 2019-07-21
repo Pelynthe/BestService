@@ -22,7 +22,7 @@
         <comment>
             Создание таблицы USERS
         </comment>
-        <createTable tableName="users" remarks="Таблица пользователей">
+        <createTable tableName="USERS" remarks="Таблица пользователей">
 
             <column name="id" type="BIGINT" autoIncrement = "true" remarks="Уникальный идентификатор">
                 <constraints nullable="false" unique="true" uniqueConstraintName="UK_ID_USERS"/>

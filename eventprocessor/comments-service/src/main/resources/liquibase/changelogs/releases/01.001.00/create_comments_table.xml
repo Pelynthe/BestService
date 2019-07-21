@@ -9,7 +9,7 @@
         <comment>
             Создание таблицы COMMENTS
         </comment>
-        <createTable tableName="comments" remarks="Таблица комментариев">
+        <createTable tableName="COMMENTS" remarks="Таблица комментариев">
 
             <column name="id" type="BIGINT" autoIncrement = "true" remarks="Уникальный идентификатор">
                 <constraints nullable="false" unique="true" uniqueConstraintName="UK_ID_COMMENTS"/>
