@@ -16,12 +16,16 @@
     <packaging>pom</packaging>
     
     <modules>
+        <module>comments-client</module>
         <module>comments-service</module>
         <module>discovery-service</module>
         <module>email-service</module>
+        <module>event-client</module>
         <module>event-service</module>
         <module>gateway-service</module>
+        <module>news-client</module>
         <module>news-service</module>
+        <module>users-client</module>
         <module>users-service</module>
         <module>web-service</module>
         <module>feign-example</module>
