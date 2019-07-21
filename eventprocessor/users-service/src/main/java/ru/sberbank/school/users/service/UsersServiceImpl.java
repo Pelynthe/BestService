@@ -3,6 +3,7 @@ package ru.sberbank.school.users.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import ru.sberbank.school.feign.model.UserModel;
 import ru.sberbank.school.users.converter.UsersConverter;
@@ -15,17 +16,18 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UsersServiceImpl implements UsersService {
 
+    private final UsersConverter converter;
     @Autowired
     private UsersRepository repository;
-    private final UsersConverter converter;
 
     @Override
     public UserModel get(String userName) {
-        Assert.hasLength(userName, "User name must not be empty");
+        Assert.hasLength(userName, "User name must not empty");
 
-//        User user = repository.findUserByUsernameIn(userName);
-//        return converter.convertToModel(user);
-        return null;
+        Optional<User> user = repository.findUserByUsername(userName);
+        return user.isPresent()
+                ? converter.convertToModel(user.get())
+                : new UserModel();
     }
 
     @Override
@@ -37,17 +39,19 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public boolean create(UserModel user) {
-        return false;
+    public void create(UserModel user) {
+        repository.save(converter.convertToEntity(user));
+    }
+
+    @Transactional
+    @Override
+    public void update(UserModel user) {
+        repository.deleteById(user.getId());
+        repository.save(converter.convertToEntity(user));
     }
 
     @Override
-    public boolean update(UserModel user) {
-        return false;
-    }
-
-    @Override
-    public boolean delete(long id) {
-        return false;
+    public void delete(long id) {
+        repository.deleteById(id);
     }
 }

@@ -4,13 +4,13 @@ import ru.sberbank.school.feign.model.UserModel;
 
 public interface UsersService {
 
-    UserModel get(String accountName);
+    UserModel get(String userName);
 
     UserModel get(long id);
 
-    boolean create(UserModel user);
+    void create(UserModel user);
 
-    boolean update(UserModel user);
+    void update(UserModel user);
 
-    boolean delete(long id);
+    void delete(long id);
 }

@@ -5,8 +5,6 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 
-import static javax.persistence.GenerationType.TABLE;
-
 @Data
 @Builder
 @NoArgsConstructor
@@ -14,12 +12,9 @@ import static javax.persistence.GenerationType.TABLE;
 @EqualsAndHashCode(of = "id")
 @Entity
 @Table(name = "users")
-//@SequenceGenerator(name = "users_seq", sequenceName = "users_seq", allocationSize = 5)
 public class User {
 
     @Id
-//    @GeneratedValue(strategy = SEQUENCE, generator = "USERS_SEQ")
-    @GeneratedValue(strategy = TABLE, generator = "increment")
     @Column(name = "id")
     private long id;
 
