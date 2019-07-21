@@ -8,13 +8,13 @@
     <changeSet id="add initial data to users" author="by liquibase" context="01.001.00">
         <comment>Добавление первоначального заполнения пользователей</comment>
         <sql>
-            INSERT INTO USERS (USERNAME, EMAIL, FIRST_NAME, LAST_NAME) VALUES
+            INSERT INTO users (USERNAME, EMAIL, FIRST_NAME, LAST_NAME) VALUES
             ('Jason', 'Statham@a.com', 'Jason', 'Statham'),
             ('Postman', 'Postman@a.com', 'Post', 'Man');
         </sql>
         <rollback>
             <sql>
-                DELETE FROM USERS WHERE USERNAME IN ('Jason', 'Postman');
+                DELETE FROM users WHERE USERNAME IN ('Jason', 'Postman');
             </sql>
         </rollback>
     </changeSet>

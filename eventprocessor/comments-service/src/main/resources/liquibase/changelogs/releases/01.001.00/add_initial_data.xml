@@ -8,7 +8,7 @@
     <changeSet id="add initial data to comments" author="by liquibase" context="01.001.00">
         <comment>Добавление первоначального заполнения комментариев</comment>
         <sql>
-            INSERT INTO COMMENTS (NEWS_ID, EVENT_ID, USER_ID, BODY, TIMESTAMP) VALUES
+            INSERT INTO comments (NEWS_ID, EVENT_ID, USER_ID, BODY, TIMESTAMP) VALUES
             ('1', '1', '2', 'First comment', '2019-07-20 17:55:07'),
             ('2', '1', '2', 'Second comment', '2019-07-20 17:57:27');
         </sql>

@@ -26,6 +26,7 @@ public class UsersConverter {
                 .email(user.getEmail())
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
+                .password(user.getPassword())
                 .build();
     }
 }

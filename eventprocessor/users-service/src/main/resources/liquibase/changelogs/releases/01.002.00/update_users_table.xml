@@ -9,7 +9,7 @@
         <comment>
             Добавление столбца password для таблицы USERS
         </comment>
-        <addColumn tableName="USERS">
+        <addColumn tableName="users">
 
             <column name="password" type="VARCHAR(255)" remarks="Пароль">
                 <constraints nullable="false"/>

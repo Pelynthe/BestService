@@ -22,7 +22,7 @@
         <comment>
             Создание таблицы USERS
         </comment>
-        <createTable tableName="USERS" remarks="Таблица пользователей">
+        <createTable tableName="users" remarks="Таблица пользователей">
 
             <column name="id" type="BIGINT" autoIncrement = "true" remarks="Уникальный идентификатор">
                 <constraints nullable="false" unique="true" uniqueConstraintName="UK_ID_USERS"/>
@@ -33,7 +33,7 @@
             </column>
 
             <column name="email" type="VARCHAR(255)" remarks="Почта">
-                <constraints nullable="false"/>
+                <constraints nullable="false" unique="true"/>
             </column>
 
             <column name="first_name" type="VARCHAR(255)" remarks="Имя"/>
@@ -44,7 +44,7 @@
 
         <rollback>
             <sql>
-                DROP TABLE USERS;
+                DROP TABLE users;
             </sql>
         </rollback>
     </changeSet>
