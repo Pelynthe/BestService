@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="create events table" author="by liquibase" context="01.001.00">
+        <event>
+            Создание таблицы COMMENTS
+        </event>
+        <createTable tableName="events" remarks="Таблица комментариев">
+
+            <column name="id" type="BIGINT" autoIncrement = "true" remarks="Уникальный идентификатор">
+                <constraints nullable="false" unique="true" uniqueConstraintName="UK_ID_COMMENTS"/>
+            </column>
+
+            <column name="news_id" type="BIGINT" remarks="Идентификатор новости, к которой оставлен комментарий">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="event_id" type="BIGINT" remarks="Идентификатор события, в рамках которого опубликована новость">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="user_id" type="BIGINT" remarks="Идентификатор пользователя, который оставил комментарий">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="body" type="VARCHAR(255)" remarks="Тело комментария">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="timestamp" type="TIMESTAMP" remarks="метка времени">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <rollback>
+            <sql>
+                DROP TABLE events;
+            </sql>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
+
+

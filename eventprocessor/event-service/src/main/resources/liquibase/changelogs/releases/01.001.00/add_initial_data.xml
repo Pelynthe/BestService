@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="add initial data to events" author="by liquibase" context="01.001.00">
+        <event>Добавление первоначального заполнения комментариев</event>
+        <sql>
+            INSERT INTO events (NEWS_ID, EVENT_ID, USER_ID, BODY, TIMESTAMP) VALUES
+            ('1', '1', '2', 'First event', '2019-07-20 17:55:07'),
+            ('2', '1', '2', 'Second event', '2019-07-20 17:57:27');
+        </sql>
+        <rollback>
+            <sql>
+            </sql>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
+
+
