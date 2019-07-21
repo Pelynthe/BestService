@@ -16,4 +16,5 @@ public class UserModel {
 	String email;
 	String firstName;
 	String lastName;
+	String password;
 }
