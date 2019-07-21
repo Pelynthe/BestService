@@ -6,32 +6,24 @@
     http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <changeSet id="create events table" author="by liquibase" context="01.001.00">
-        <event>
-            Создание таблицы COMMENTS
-        </event>
-        <createTable tableName="events" remarks="Таблица комментариев">
+        <comment>
+            Создание таблицы EVENTS
+        </comment>
+        <createTable tableName="events" remarks="Таблица событий">
 
             <column name="id" type="BIGINT" autoIncrement = "true" remarks="Уникальный идентификатор">
-                <constraints nullable="false" unique="true" uniqueConstraintName="UK_ID_COMMENTS"/>
-            </column>
-
-            <column name="news_id" type="BIGINT" remarks="Идентификатор новости, к которой оставлен комментарий">
-                <constraints nullable="false"/>
-            </column>
-
-            <column name="event_id" type="BIGINT" remarks="Идентификатор события, в рамках которого опубликована новость">
-                <constraints nullable="false"/>
+                <constraints nullable="false" unique="true" uniqueConstraintName="UK_ID_EVENTS"/>
             </column>
 
             <column name="user_id" type="BIGINT" remarks="Идентификатор пользователя, который оставил комментарий">
                 <constraints nullable="false"/>
             </column>
 
-            <column name="body" type="VARCHAR(255)" remarks="Тело комментария">
+            <column name="body" type="VARCHAR(2550)" remarks="Тело">
                 <constraints nullable="false"/>
             </column>
 
-            <column name="timestamp" type="TIMESTAMP" remarks="метка времени">
+            <column name="timestamp" type="TIMESTAMP" remarks="Метка времени">
                 <constraints nullable="false"/>
             </column>
         </createTable>

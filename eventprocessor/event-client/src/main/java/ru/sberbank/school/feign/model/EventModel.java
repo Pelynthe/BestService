@@ -14,8 +14,6 @@ import java.sql.Timestamp;
 public class EventModel {
 
 	private long id;
-	private long newsId;
-	private long eventId;
 	private long userId;
 	private String body;
 	private Timestamp timestamp;

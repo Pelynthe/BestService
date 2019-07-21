@@ -13,18 +13,12 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 @Entity
-@Table(name = "comments")
+@Table(name = "events")
 public class Event {
 
     @Id
     @Column(name = "id")
     private long id;
-
-    @Column(name = "news_id")
-    private long newsId;
-
-    @Column(name = "event_id")
-    private long eventId;
 
     @Column(name = "user_id")
     private long userId;

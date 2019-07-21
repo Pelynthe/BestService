@@ -31,7 +31,7 @@
                 <constraints nullable="false"/>
             </column>
 
-            <column name="timestamp" type="TIMESTAMP" remarks="метка времени">
+            <column name="timestamp" type="TIMESTAMP" remarks="Метка времени">
                 <constraints nullable="false"/>
             </column>
         </createTable>
