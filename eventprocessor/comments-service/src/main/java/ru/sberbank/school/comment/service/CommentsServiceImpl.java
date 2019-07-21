@@ -48,15 +48,15 @@ public class CommentsServiceImpl implements CommentsService {
     }
 
     @Override
-    public void create(CommentsModel user) {
-        repository.save(converter.convertToEntity(user));
+    public void create(CommentsModel comment) {
+        repository.save(converter.convertToEntity(comment));
     }
 
     @Transactional
     @Override
-    public void update(CommentsModel user) {
-        repository.deleteById(user.getId());
-        repository.save(converter.convertToEntity(user));
+    public void update(CommentsModel comment) {
+        repository.deleteById(comment.getId());
+        repository.save(converter.convertToEntity(comment));
     }
 
     @Override

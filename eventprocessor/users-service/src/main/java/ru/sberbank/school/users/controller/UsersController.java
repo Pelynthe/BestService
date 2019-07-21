@@ -14,11 +14,11 @@ public class UsersController {
 
     private final UsersService usersService;
 
-/*    @GetMapping(path = "{name}", produces = APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(path = "name/{name}", produces = APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
     public UserModel getUserByName(@PathVariable String name) {
-        return usersService.getByName(name);
-    }*/
+        return usersService.get(name);
+    }
 
     @GetMapping(path = "{id}", produces = APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
@@ -31,7 +31,7 @@ public class UsersController {
         usersService.create(userModel);
     }
 
-    @PutMapping(path = "{id}")
+    @PutMapping
     public void updateUser(@RequestBody UserModel userModel) {
         usersService.update(userModel);
     }
