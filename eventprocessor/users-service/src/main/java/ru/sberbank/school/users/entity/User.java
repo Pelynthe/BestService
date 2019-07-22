@@ -1,9 +1,12 @@
 package ru.sberbank.school.users.entity;
 
 import lombok.*;
+import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Builder
@@ -33,4 +36,11 @@ public class User {
 
     @Column(name = "password")
     private String password;
+
+    @OneToMany(
+            mappedBy = "user",
+            fetch = FetchType.LAZY
+    )
+    @BatchSize(size = 100)
+    private List<Role> roles = new ArrayList<>();
 }
