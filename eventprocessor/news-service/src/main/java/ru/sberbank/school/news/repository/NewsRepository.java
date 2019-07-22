@@ -7,6 +7,4 @@ import ru.sberbank.school.news.entity.News;
 @Repository
 public interface NewsRepository extends CrudRepository<News, Long> {
 
-//    Optional<UserModel> findUserByUsernameIn(String username);
-//    User findUserByUsernameIn(String username);
 }

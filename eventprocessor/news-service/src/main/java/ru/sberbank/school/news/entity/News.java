@@ -1,12 +1,11 @@
 package ru.sberbank.school.news.entity;
 
 import lombok.*;
-
+import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
-import static javax.persistence.GenerationType.TABLE;
 
 @Data
 @Builder
@@ -18,7 +17,6 @@ import static javax.persistence.GenerationType.TABLE;
 public class News {
 
     @Id
-    @GeneratedValue(strategy = TABLE, generator = "increment")
     @Column(name = "id")
     private long id;
 
@@ -28,6 +26,7 @@ public class News {
     @Column(name = "text")
     private String text;
 
-    @Column(name = "datetime")
-    private Date datetime;
+    @CreationTimestamp
+    @Column(name = "timestamp")
+    private Timestamp timestamp;
 }

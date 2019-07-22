@@ -10,15 +10,9 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 @RestController
 @RequestMapping(path = "news")
 @RequiredArgsConstructor
-public class UsersController {
+public class NewsController {
 
     private final NewsService newsService;
-
-/*    @GetMapping(path = "{name}", produces = APPLICATION_JSON_UTF8_VALUE)
-    @ResponseBody
-    public UserModel getUserByName(@PathVariable String name) {
-        return newsService.getByName(name);
-    }*/
 
     @GetMapping(path = "{id}", produces = APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody

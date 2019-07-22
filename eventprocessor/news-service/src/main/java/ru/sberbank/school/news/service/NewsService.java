@@ -8,9 +8,9 @@ public interface NewsService {
 
     NewsModel get(long id);
 
-    boolean create(NewsModel news);
+    void create(NewsModel news);
 
-    boolean update(NewsModel news);//TODO нужен?
+    void update(NewsModel news);//TODO нужен?
 
-    boolean delete(long id);
+    void delete(long id);
 }

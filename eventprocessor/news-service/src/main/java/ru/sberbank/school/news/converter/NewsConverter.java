@@ -13,7 +13,7 @@ public class NewsConverter {
                 .id(news.getId())
                 .idEvent(news.getIdEvent())
                 .text(news.getText())
-                .datetime(news.getDatetime())
+                .timestamp(news.getTimestamp())
                 .build();
     }
 
@@ -22,7 +22,7 @@ public class NewsConverter {
                 .id(news.getId())
                 .idEvent(news.getIdEvent())
                 .text(news.getText())
-                .datetime(news.getDatetime())
+                .timestamp(news.getTimestamp())
                 .build();
     }
 }

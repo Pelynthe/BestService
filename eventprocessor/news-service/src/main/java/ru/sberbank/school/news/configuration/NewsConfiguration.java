@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 @EnableJpaRepositories("ru.sberbank.school.news.repository")
 @EnableTransactionManagement
 @PropertySource("classpath:application.properties")
-public class UsersConfiguration {
+public class NewsConfiguration {
 
     private static final String DB_DRIVER = "db.driver";
     private static final String DB_URL = "db.url";

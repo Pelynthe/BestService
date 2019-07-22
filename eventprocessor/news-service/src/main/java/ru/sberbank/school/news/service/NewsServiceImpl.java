@@ -14,13 +14,17 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class NewsServiceImpl implements NewsService { //TODO заполнить
 
+    private final NewsConverter converter;
+
     @Autowired
     private NewsRepository repository;
-    private final NewsConverter converter;
 
     @Override
     public NewsModel get(int idEvent) {
-        return null;
+        Optional<News> news = repository.findById((long) idEvent);//FIXME
+        return news.isPresent()
+                ? converter.convertToModel(news.get())
+                : new NewsModel();
     }
 
     @Override
@@ -32,17 +36,18 @@ public class NewsServiceImpl implements NewsService { //TODO заполнить
     }
 
     @Override
-    public boolean create(NewsModel news) {
-        return false;
+    public void create(NewsModel news) {
+        repository.save(converter.convertToEntity(news));
     }
 
     @Override
-    public boolean update(NewsModel news) {
-        return false;
+    public void update(NewsModel news) {
+        repository.deleteById(news.getId());
+        repository.save(converter.convertToEntity(news));
     }
 
     @Override
-    public boolean delete(long id) {
-        return false;
+    public void delete(long id) {
+        repository.deleteById(id);
     }
 }
