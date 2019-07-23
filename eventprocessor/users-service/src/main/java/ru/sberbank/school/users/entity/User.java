@@ -40,7 +40,9 @@ public class User {
     @OneToMany(
             mappedBy = "user",
             fetch = FetchType.LAZY
+//            ,cascade=CascadeType.PERSIST
     )
+//    @JoinTable(name = "roles")
     @BatchSize(size = 100)
     private List<Role> roles = new ArrayList<>();
 }
