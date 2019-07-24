@@ -15,6 +15,7 @@ public class EventModel {
 
 	private long id;
 	private long userId;
+	private String header;
 	private String body;
 	private Timestamp timestamp;
 

@@ -1,5 +1,6 @@
 package ru.sberbank.school.event.controller;
 
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.sberbank.school.event.service.EventService;
@@ -21,10 +22,17 @@ public class EventController {
     }
 
     @PostMapping
-    public void createEvent(@RequestBody EventModel EventModel) {
-        eventService.create(EventModel);
+    public void saveEvent(@NonNull @RequestBody EventModel EventModel) {
+        eventService.save(EventModel);
     }
 
+    @Deprecated
+    @PostMapping
+    public void createEvent(@RequestBody EventModel EventModel) {
+        eventService.save(EventModel);
+    }
+
+    @Deprecated
     @PutMapping
     public void updateEvent(@RequestBody EventModel EventModel) {
         eventService.update(EventModel);

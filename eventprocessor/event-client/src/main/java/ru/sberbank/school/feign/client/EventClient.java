@@ -16,8 +16,13 @@ public interface EventClient {
 	EventModel getEvent(@NonNull @PathVariable("Id") long Id);
 
 	@RequestMapping(method = POST, value = "/event")
+	EventModel saveEvent(@NonNull EventModel event);
+
+	@Deprecated
+	@RequestMapping(method = POST, value = "/event")
 	void createEvent(@NonNull EventModel event);
 
+	@Deprecated
 	@RequestMapping(method = PUT, value = "/event")
 	void updateEvent(@NonNull EventModel event);
 

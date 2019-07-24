@@ -12,17 +12,19 @@ public class EventConverter {
         return EventModel.builder()
                 .id(event.getId())
                 .userId(event.getUserId())
+                .header(event.getHeader())
                 .body(event.getBody())
                 .timestamp(event.getTimestamp())
                 .build();
     }
 
-    public Event convertToEntity (@NonNull EventModel comment) {
+    public Event convertToEntity (@NonNull EventModel event) {
         return Event.builder()
-                .id(comment.getId())
-                .userId(comment.getUserId())
-                .body(comment.getBody())
-                .timestamp(comment.getTimestamp())
+                .id(event.getId())
+                .header(event.getHeader())
+                .userId(event.getUserId())
+                .body(event.getBody())
+                .timestamp(event.getTimestamp())
                 .build();
     }
 }

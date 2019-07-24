@@ -6,7 +6,7 @@ public interface EventService {
 
     EventModel get(long id);
 
-    void create(EventModel user);
+    EventModel save(EventModel user);
 
     void update(EventModel user);
 

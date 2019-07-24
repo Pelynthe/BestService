@@ -7,6 +7,8 @@ import javax.persistence.*;
 
 import java.sql.Timestamp;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -17,11 +19,15 @@ import java.sql.Timestamp;
 public class Event {
 
     @Id
+    @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id")
     private long id;
 
     @Column(name = "user_id")
     private long userId;
+
+    @Column(name = "body")
+    private String header;
 
     @Column(name = "body")
     private String body;

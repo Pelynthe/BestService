@@ -21,15 +21,18 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public EventModel get(long id) {
-        Optional<Event> comment = repository.findById(id);
-        return comment.isPresent()
-                ? converter.convertToModel(comment.get())
+        Optional<Event> event = repository.findById(id);
+        return event.isPresent()
+                ? converter.convertToModel(event.get())
                 : new EventModel();
     }
 
+    @Transactional
     @Override
-    public void create(EventModel eventModel) {
-        repository.save(converter.convertToEntity(eventModel));
+    public EventModel save(EventModel eventModel) {
+        Event event = converter.convertToEntity(eventModel);
+        repository.save(event);
+        return converter.convertToModel(event);
     }
 
     @Transactional

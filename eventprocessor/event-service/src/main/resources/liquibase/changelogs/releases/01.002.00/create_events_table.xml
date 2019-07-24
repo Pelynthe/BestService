@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="create events table" author="by liquibase" context="01.001.00">
+        <comment>
+            Создание таблицы EVENTS
+        </comment>
+        <createTable tableName="events" remarks="Таблица событий">
+
+            <column name="id" type="BIGINT" autoIncrement = "true" remarks="Уникальный идентификатор">
+                <constraints nullable="false" unique="true" uniqueConstraintName="UK_ID_EVENTS"/>
+            </column>
+
+            <column name="user_id" type="BIGINT" remarks="Идентификатор пользователя, который оставил комментарий">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="body" type="VARCHAR(2550)" remarks="Тело">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="timestamp" type="TIMESTAMP" remarks="Метка времени">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <rollback>
+            <sql>
+                DROP TABLE events;
+            </sql>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
+
+
