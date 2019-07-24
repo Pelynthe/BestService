@@ -18,8 +18,10 @@ public interface UsersClient {
 	UserModel getUser(@PathVariable("userId") long userId);
 
 	@RequestMapping(method = RequestMethod.POST, value = "/user")
-	void createUser(UserModel user);
+	void saveUser(UserModel user);
 
+	//use saveUser
+	@Deprecated
 	@RequestMapping(method = RequestMethod.PUT, value = "/user")
 	void updateUser(UserModel user);
 
