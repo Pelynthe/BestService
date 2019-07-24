@@ -11,9 +11,9 @@ public class NewsConverter {
     public NewsModel convertToModel (@NonNull News news) {
         return NewsModel.builder()
                 .id(news.getId())
-                .idEvent(news.getIdEvent())
+                .eventId(news.getEventId())
                 .headline(news.getHeadline())
-                .text(news.getText())
+                .body(news.getBody())
                 .timestamp(news.getTimestamp())
                 .build();
     }
@@ -21,9 +21,9 @@ public class NewsConverter {
     public News convertToEntity (@NonNull NewsModel news) {
         return News.builder()
                 .id(news.getId())
-                .idEvent(news.getIdEvent())
+                .eventId(news.getEventId())
                 .headline(news.getHeadline())
-                .text(news.getText())
+                .body(news.getBody())
                 .timestamp(news.getTimestamp())
                 .build();
     }

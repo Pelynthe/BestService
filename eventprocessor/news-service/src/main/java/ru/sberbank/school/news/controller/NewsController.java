@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.sberbank.school.feign.model.NewsModel;
 import ru.sberbank.school.news.service.NewsService;
 
+import java.util.List;
+
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 
 @RestController
@@ -18,6 +20,12 @@ public class NewsController {
     @ResponseBody
     public NewsModel getNews(@PathVariable long id) {
         return newsService.get(id);
+    }
+
+    @GetMapping(path = "event{id}", produces = APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public List<NewsModel> getNewsByEvent(@PathVariable long id) {
+        return newsService.getByEvent(id);
     }
 
     @PostMapping

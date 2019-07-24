@@ -15,11 +15,11 @@ public class NewsModel {
 
 	private long id;
 
-	private int idEvent;
+	private long eventId;
 
 	private String headline;
 
-	private String text;
+	private String body;
 
 	private Timestamp timestamp;
 }

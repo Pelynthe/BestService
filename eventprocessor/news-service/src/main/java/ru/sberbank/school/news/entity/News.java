@@ -20,13 +20,13 @@ public class News {
     private long id;
 
     @Column(name = "event_id")
-    private int idEvent;
+    private long eventId;
 
     @Column(name = "headline")
     private String headline;
 
     @Column(name = "body")
-    private String text;
+    private String body;
 
     @CreationTimestamp
     @Column(name = "timestamp")

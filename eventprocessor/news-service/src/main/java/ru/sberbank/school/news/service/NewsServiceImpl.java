@@ -8,7 +8,9 @@ import ru.sberbank.school.news.converter.NewsConverter;
 import ru.sberbank.school.news.entity.News;
 import ru.sberbank.school.news.repository.NewsRepository;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -20,19 +22,20 @@ public class NewsServiceImpl implements NewsService {
     private NewsRepository repository;
 
     @Override
-    public NewsModel get(int idEvent) {
-        Optional<News> news = repository.findById((long) idEvent);//FIXME вытаскивать все новосотм за event
+    public NewsModel get(long id) {
+        Optional<News> news = repository.findById(id);
         return news.isPresent()
                 ? converter.convertToModel(news.get())
                 : new NewsModel();
     }
 
     @Override
-    public NewsModel get(long id) {
-        Optional<News> news = repository.findById(id);
-        return news.isPresent()
-                ? converter.convertToModel(news.get())
-                : new NewsModel();
+    public List<NewsModel> getByEvent(long id) {
+        List<News> news = repository.findNewsByEventId(id);
+
+        return  news.stream()
+                .map(converter::convertToModel)
+                .collect(Collectors.toList());
     }
 
     @Override
