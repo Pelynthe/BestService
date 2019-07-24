@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 import ru.sberbank.school.feign.model.UserModel;
 import ru.sberbank.school.users.entity.User;
 
+import java.util.Collections;
+
 @Component
 public class UsersConverter {
 
@@ -16,7 +18,7 @@ public class UsersConverter {
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .password(user.getPassword())
-                .role(user.getRole())
+                .role(Collections.singletonList(user.getRole()))
                 .build();
     }
 
@@ -29,7 +31,7 @@ public class UsersConverter {
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .password(user.getPassword())
-                .role(user.getRole())
+                .role(user.getRole().get(0))
                 .build();
 
     }
