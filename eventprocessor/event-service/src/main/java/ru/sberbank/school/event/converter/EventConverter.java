@@ -21,8 +21,8 @@ public class EventConverter {
     public Event convertToEntity (@NonNull EventModel event) {
         return Event.builder()
                 .id(event.getId())
-                .header(event.getHeader())
                 .userId(event.getUserId())
+                .header(event.getHeader())
                 .body(event.getBody())
                 .timestamp(event.getTimestamp())
                 .build();

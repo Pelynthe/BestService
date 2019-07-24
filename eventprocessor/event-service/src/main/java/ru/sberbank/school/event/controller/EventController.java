@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.sberbank.school.event.service.EventService;
 import ru.sberbank.school.feign.model.EventModel;
 
+import java.util.List;
+
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 
 @RestController
@@ -19,6 +21,12 @@ public class EventController {
     @ResponseBody
     public EventModel getEvent(@PathVariable long id) {
         return eventService.get(id);
+    }
+
+    @GetMapping(path = "latest", produces = APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public List<EventModel> getEvents(@PathVariable long id) {
+        return eventService.get();
     }
 
     @PostMapping(produces = APPLICATION_JSON_UTF8_VALUE)

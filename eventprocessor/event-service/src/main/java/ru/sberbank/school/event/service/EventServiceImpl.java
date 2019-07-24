@@ -9,7 +9,9 @@ import ru.sberbank.school.event.entity.Event;
 import ru.sberbank.school.event.repository.EventRepository;
 import ru.sberbank.school.feign.model.EventModel;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -27,6 +29,13 @@ public class EventServiceImpl implements EventService {
                 : new EventModel();
     }
 
+    @Override
+    public List<EventModel> get() {
+//        List<Event> events = repository.getLatestEvents();
+//        return events.stream().map(converter::convertToModel).collect(Collectors.toList());
+        return null;
+    }
+
     @Transactional
     @Override
     public EventModel save(EventModel eventModel) {
@@ -35,6 +44,7 @@ public class EventServiceImpl implements EventService {
         return converter.convertToModel(event);
     }
 
+    @Deprecated
     @Transactional
     @Override
     public void update(EventModel event) {
