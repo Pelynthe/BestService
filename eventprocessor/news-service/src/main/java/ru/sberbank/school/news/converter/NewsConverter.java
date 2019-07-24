@@ -12,6 +12,7 @@ public class NewsConverter {
         return NewsModel.builder()
                 .id(news.getId())
                 .idEvent(news.getIdEvent())
+                .headline(news.getHeadline())
                 .text(news.getText())
                 .timestamp(news.getTimestamp())
                 .build();
@@ -21,6 +22,7 @@ public class NewsConverter {
         return News.builder()
                 .id(news.getId())
                 .idEvent(news.getIdEvent())
+                .headline(news.getHeadline())
                 .text(news.getText())
                 .timestamp(news.getTimestamp())
                 .build();

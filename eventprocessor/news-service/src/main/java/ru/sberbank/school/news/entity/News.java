@@ -6,7 +6,6 @@ import javax.persistence.*;
 
 import java.sql.Timestamp;
 
-
 @Data
 @Builder
 @NoArgsConstructor
@@ -22,6 +21,9 @@ public class News {
 
     @Column(name = "id_event")
     private int idEvent;
+
+    @Column(name = "headline")
+    private String headline;
 
     @Column(name = "text")
     private String text;

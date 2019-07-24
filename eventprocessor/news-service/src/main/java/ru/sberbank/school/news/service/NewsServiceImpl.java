@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class NewsServiceImpl implements NewsService { //TODO заполнить
+public class NewsServiceImpl implements NewsService {
 
     private final NewsConverter converter;
 
@@ -21,7 +21,7 @@ public class NewsServiceImpl implements NewsService { //TODO заполнить
 
     @Override
     public NewsModel get(int idEvent) {
-        Optional<News> news = repository.findById((long) idEvent);//FIXME
+        Optional<News> news = repository.findById((long) idEvent);//FIXME вытаскивать все новосотм за event
         return news.isPresent()
                 ? converter.convertToModel(news.get())
                 : new NewsModel();

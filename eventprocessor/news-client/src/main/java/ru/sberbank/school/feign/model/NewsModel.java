@@ -17,6 +17,8 @@ public class NewsModel {
 
 	private int idEvent;
 
+	private String headline;
+
 	private String text;
 
 	private Timestamp timestamp;

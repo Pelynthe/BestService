@@ -19,7 +19,7 @@ public interface NewsClient {
 	void createNews(@NonNull NewsModel news);
 
 	@RequestMapping(method = PUT, value = "/news")
-	void updateNews(@NonNull NewsModel news);//TODO не уверен что он нужен
+	void updateNews(@NonNull NewsModel news);
 
 	@RequestMapping(method = DELETE, value = "/news/{id}")
 	void deleteNews(@NonNull @PathVariable("Id") long id);
