@@ -21,9 +21,10 @@ public class EventController {
         return eventService.get(id);
     }
 
-    @PostMapping
-    public void saveEvent(@NonNull @RequestBody EventModel EventModel) {
-        eventService.save(EventModel);
+    @PostMapping(produces = APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public EventModel saveEvent(@NonNull @RequestBody EventModel EventModel) {
+        return eventService.save(EventModel);
     }
 
     @Deprecated

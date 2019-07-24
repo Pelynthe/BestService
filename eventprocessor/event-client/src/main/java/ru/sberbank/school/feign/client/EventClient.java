@@ -13,7 +13,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 public interface EventClient {
 
 	@RequestMapping(method = GET, value = "/event/{id}", produces = APPLICATION_JSON_UTF8_VALUE)
-	EventModel getEvent(@NonNull @PathVariable("Id") long Id);
+	EventModel getEvent(@NonNull @PathVariable("id") long Id);
 
 	@RequestMapping(method = POST, value = "/event")
 	EventModel saveEvent(@NonNull EventModel event);

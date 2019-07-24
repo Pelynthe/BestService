@@ -8,6 +8,7 @@ public interface EventService {
 
     EventModel save(EventModel user);
 
+    @Deprecated
     void update(EventModel user);
 
     void delete(long id);

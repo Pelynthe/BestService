@@ -26,7 +26,7 @@ public class Event {
     @Column(name = "user_id")
     private long userId;
 
-    @Column(name = "body")
+    @Column(name = "header")
     private String header;
 
     @Column(name = "body")

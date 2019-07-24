@@ -26,7 +26,8 @@ public class UsersController {
         return usersService.get(id);
     }
 
-    @PostMapping
+    @PostMapping(produces = APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
     public UserModel saveUser(@RequestBody UserModel userModel) {
         return usersService.save(userModel);
     }
