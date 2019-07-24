@@ -20,7 +20,7 @@ public interface CommentsClient {
 	@RequestMapping(method = GET, value = "/comments/news{id}", produces = APPLICATION_JSON_UTF8_VALUE)
 	List<CommentsModel> getCommentsByNews(@NonNull @PathVariable("id") long id);
 
-	@RequestMapping(method = GET, value = "/comments/event{Id}", produces = APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(method = GET, value = "/comments/event{id}", produces = APPLICATION_JSON_UTF8_VALUE)
 	List<CommentsModel> getCommentsByEvent(@NonNull @PathVariable("id") long id);
 
 	@RequestMapping(method = POST, value = "/comments")
