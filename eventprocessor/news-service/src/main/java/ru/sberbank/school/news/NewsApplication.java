@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @EnableEurekaClient
 @SpringBootApplication
-@ComponentScan("ru.sberbank.school.client")
+@ComponentScan("ru.sberbank.school.news")
 public class NewsApplication {
     public static void main(String[] args) {
         SpringApplication.run(NewsApplication.class, args);

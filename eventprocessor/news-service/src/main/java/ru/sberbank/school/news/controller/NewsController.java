@@ -25,7 +25,7 @@ public class NewsController {
         newsService.create(newsModel);
     }
 
-    @PutMapping(path = "{id}")
+    @PutMapping
     public void updateNews(@RequestBody NewsModel newsModel) {
         newsService.update(newsModel);
     }
