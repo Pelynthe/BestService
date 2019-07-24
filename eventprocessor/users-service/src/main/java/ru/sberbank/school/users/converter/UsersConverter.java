@@ -8,7 +8,7 @@ import ru.sberbank.school.users.entity.User;
 @Component
 public class UsersConverter {
 
-    public UserModel convertToModel (@NonNull User user) {
+    public UserModel convertToModel(@NonNull User user) {
         return UserModel.builder()
                 .id(user.getId())
                 .username(user.getUsername())
@@ -16,10 +16,12 @@ public class UsersConverter {
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .password(user.getPassword())
+                .role(user.getRole())
                 .build();
     }
 
-    public User convertToEntity (@NonNull UserModel user) {
+    public User convertToEntity(@NonNull UserModel user) {
+
         return User.builder()
                 .id(user.getId())
                 .username(user.getUsername())
@@ -27,6 +29,8 @@ public class UsersConverter {
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .password(user.getPassword())
+                .role(user.getRole())
                 .build();
+
     }
 }

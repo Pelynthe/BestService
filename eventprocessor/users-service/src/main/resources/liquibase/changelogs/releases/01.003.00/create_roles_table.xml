@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="create roles table" author="by liquibase" context="01.003.00">
+        <comment>
+            Создание таблицы roles
+        </comment>
+        <createTable tableName="roles" remarks="Таблица ролей">
+
+            <column name="id" type="BIGINT" autoIncrement = "true" remarks="Уникальный идентификатор">
+                <constraints nullable="false" unique="true" uniqueConstraintName="UK_ID_ROLES"/>
+            </column>
+
+            <column name="user_id" type="BIGINT" remarks="Идентификатор пользователя">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="role" type="VARCHAR(255)" remarks="Почта">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+        <rollback>
+            <sql>
+                DROP TABLE roles;
+            </sql>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
+
+

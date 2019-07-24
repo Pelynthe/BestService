@@ -18,13 +18,13 @@ public class UsersServiceImpl implements UsersService {
 
     private final UsersConverter converter;
     @Autowired
-    private UsersRepository repository;
+    private UsersRepository usersRepository;
 
     @Override
     public UserModel get(String userName) {
         Assert.hasLength(userName, "User name must not empty");
 
-        Optional<User> user = repository.findUserByUsername(userName);
+        Optional<User> user = usersRepository.findUserByUsername(userName);
         return user.isPresent()
                 ? converter.convertToModel(user.get())
                 : new UserModel();
@@ -32,26 +32,27 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public UserModel get(long id) {
-        Optional<User> user = repository.findById(id);
+        Optional<User> user = usersRepository.findById(id);
         return user.isPresent()
                 ? converter.convertToModel(user.get())
                 : new UserModel();
     }
 
+    @Transactional
     @Override
-    public void create(UserModel user) {
-        repository.save(converter.convertToEntity(user));
+    public void create(UserModel userModel) {
+        usersRepository.save(converter.convertToEntity(userModel));
     }
 
     @Transactional
     @Override
-    public void update(UserModel user) {
-        repository.deleteById(user.getId());
-        repository.save(converter.convertToEntity(user));
+    public void update(UserModel userModel) {
+        usersRepository.deleteById(userModel.getId());
+        usersRepository.save(converter.convertToEntity(userModel));
     }
 
     @Override
     public void delete(long id) {
-        repository.deleteById(id);
+        usersRepository.deleteById(id);
     }
 }
