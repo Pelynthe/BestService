@@ -2,11 +2,10 @@ package ru.sberbank.school.users.entity;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Data
 @Builder
@@ -18,6 +17,7 @@ import javax.validation.constraints.Email;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id")
     private long id;
 

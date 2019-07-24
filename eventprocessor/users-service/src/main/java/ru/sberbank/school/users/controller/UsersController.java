@@ -27,10 +27,12 @@ public class UsersController {
     }
 
     @PostMapping
-    public void createUser(@RequestBody UserModel userModel) {
-        usersService.create(userModel);
+    public UserModel saveUser(@RequestBody UserModel userModel) {
+        return usersService.save(userModel);
     }
 
+    //use saveUser
+    @Deprecated
     @PutMapping
     public void updateUser(@RequestBody UserModel userModel) {
         usersService.update(userModel);

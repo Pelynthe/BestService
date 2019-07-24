@@ -40,8 +40,10 @@ public class UsersServiceImpl implements UsersService {
 
     @Transactional
     @Override
-    public void create(UserModel userModel) {
-        usersRepository.save(converter.convertToEntity(userModel));
+    public UserModel save(UserModel userModel) {
+        User user = converter.convertToEntity(userModel);
+        usersRepository.save(user);
+        return converter.convertToModel(user);
     }
 
     @Transactional

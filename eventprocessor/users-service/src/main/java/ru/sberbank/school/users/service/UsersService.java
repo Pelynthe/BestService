@@ -8,7 +8,7 @@ public interface UsersService {
 
     UserModel get(long id);
 
-    void create(UserModel user);
+    UserModel save(UserModel user);
 
     void update(UserModel user);
 
