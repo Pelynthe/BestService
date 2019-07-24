@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="drop roles table" author="by liquibase" context="01.003.00">
+        <comment>
+            Удаление таблицы roles
+        </comment>
+        <sql>
+            DROP TABLE roles;
+        </sql>
+    </changeSet>
+
+    <changeSet id="add role to users table" author="by liquibase" context="01.003.00">
+        <comment>
+            Добавление столбца role для таблицы USERS
+        </comment>
+        <addColumn tableName="users">
+            <column name="role" type="VARCHAR(255)" remarks="Роль"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>
+
+

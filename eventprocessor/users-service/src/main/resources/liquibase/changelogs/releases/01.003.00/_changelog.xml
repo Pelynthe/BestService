@@ -6,5 +6,6 @@
 
     <include file="create_roles_table.xml" relativeToChangelogFile="true"/>
     <include file="add_initial_data.xml" relativeToChangelogFile="true"/>
+    <include file="drop_roles_table.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

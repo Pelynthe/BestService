@@ -1,12 +1,12 @@
 package ru.sberbank.school.users.entity;
 
 import lombok.*;
-import org.hibernate.annotations.BatchSize;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @Builder
@@ -37,12 +37,6 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(
-            mappedBy = "user",
-            fetch = FetchType.LAZY
-//            ,cascade=CascadeType.PERSIST
-    )
-//    @JoinTable(name = "roles")
-    @BatchSize(size = 100)
-    private List<Role> roles = new ArrayList<>();
+    @Column(name = "role")
+    private String role;
 }
