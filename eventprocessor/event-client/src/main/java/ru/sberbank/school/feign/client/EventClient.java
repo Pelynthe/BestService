@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.sberbank.school.feign.model.EventModel;
 
+import java.util.List;
+
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
@@ -14,6 +16,9 @@ public interface EventClient {
 
 	@RequestMapping(method = GET, value = "/event/{id}", produces = APPLICATION_JSON_UTF8_VALUE)
 	EventModel getEvent(@NonNull @PathVariable("id") long Id);
+
+	@RequestMapping(method = GET, value = "/event/latest", produces = APPLICATION_JSON_UTF8_VALUE)
+	List<EventModel> getEvents();
 
 	@RequestMapping(method = POST, value = "/event")
 	EventModel saveEvent(@NonNull EventModel event);

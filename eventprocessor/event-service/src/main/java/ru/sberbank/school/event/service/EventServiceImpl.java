@@ -31,9 +31,10 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public List<EventModel> get() {
-//        List<Event> events = repository.getLatestEvents();
-//        return events.stream().map(converter::convertToModel).collect(Collectors.toList());
-        return null;
+        List<Event> events = repository.getLatest20Events();
+        return events.stream()
+                .map(converter::convertToModel)
+                .collect(Collectors.toList());
     }
 
     @Transactional

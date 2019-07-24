@@ -10,6 +10,8 @@ import java.util.List;
 @Repository
 public interface EventRepository extends CrudRepository<Event, Long> {
 
-    @Query("select e from Events e order by timestamp desc limit 1")
-    List<Event> getLatestEvents();
+    @Query(
+            value = "select * from events e order by timestamp desc limit 20",
+            nativeQuery = true)
+    List<Event> getLatest20Events();
 }

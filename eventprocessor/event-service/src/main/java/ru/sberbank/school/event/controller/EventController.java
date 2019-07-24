@@ -25,7 +25,7 @@ public class EventController {
 
     @GetMapping(path = "latest", produces = APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public List<EventModel> getEvents(@PathVariable long id) {
+    public List<EventModel> getEvents() {
         return eventService.get();
     }
 
