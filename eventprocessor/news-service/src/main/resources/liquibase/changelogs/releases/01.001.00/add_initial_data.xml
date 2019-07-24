@@ -5,15 +5,16 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
     http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <changeSet id="add initial data to users" author="by liquibase" context="01.001.00">
-        <comment>Добавление первоначального заполнения пользователей</comment>
+    <changeSet id="add initial data to news" author="by liquibase" context="01.001.00">
+        <comment>Добавление первоначального заполнения новостей</comment>
         <sql>
-            INSERT INTO USERS (USERNAME, EMAIL) VALUES
-            ('Jason', 'Statham@a.com');
+            INSERT INTO news (EVENT_ID, HEADLINE, BODY, TIMESTAMP)  VALUES
+            ('1', 'News 1', 'Body 1', '2019-07-20 17:55:07'),
+            ('1', 'News 2', 'Body 2', '2019-07-20 17:57:07'),
+            ('2', 'News 1', 'Body 1', '2019-07-20 17:59:27');
         </sql>
         <rollback>
             <sql>
-                DELETE FROM USERS WHERE USERNAME IN ('Jason');
             </sql>
         </rollback>
     </changeSet>
