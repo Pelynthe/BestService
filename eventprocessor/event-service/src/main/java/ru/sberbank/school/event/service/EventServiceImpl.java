@@ -37,6 +37,22 @@ public class EventServiceImpl implements EventService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<EventModel> getNext(long id) {
+        List<Event> events = repository.getNext20(id);
+        return events.stream()
+                .map(converter::convertToModel)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<EventModel> getPrevious(long id) {
+        List<Event> events = repository.getPrevious20(id);
+        return events.stream()
+                .map(converter::convertToModel)
+                .collect(Collectors.toList());
+    }
+
     @Transactional
     @Override
     public EventModel save(EventModel eventModel) {

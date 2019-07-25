@@ -10,6 +10,10 @@ public interface EventService {
 
     List<EventModel> get();
 
+    List<EventModel> getNext(long id);
+
+    List<EventModel> getPrevious(long id);
+
     EventModel save(EventModel user);
 
     @Deprecated
