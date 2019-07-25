@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.sberbank.school.feign.model.UserModel;
 import ru.sberbank.school.users.service.UsersService;
 
+import java.util.List;
+
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 
 @RestController
@@ -26,7 +28,14 @@ public class UsersController {
         return usersService.get(id);
     }
 
-    @PostMapping
+    @GetMapping(produces = APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public List<UserModel> getUsers(@RequestBody List<Long> ids) {
+        return usersService.get(ids);
+    }
+
+    @PostMapping(produces = APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
     public UserModel saveUser(@RequestBody UserModel userModel) {
         return usersService.save(userModel);
     }
