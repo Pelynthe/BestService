@@ -18,7 +18,7 @@ public class UsersConverter {
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .password(user.getPassword())
-                .role(Collections.singletonList(user.getRole()))
+                .roles(Collections.singletonList(user.getRole()))
                 .build();
     }
 
@@ -31,7 +31,7 @@ public class UsersConverter {
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .password(user.getPassword())
-                .role(user.getRole().get(0))
+                .role(user.getRoles().get(0))
                 .build();
 
     }
