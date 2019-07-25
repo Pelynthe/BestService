@@ -18,7 +18,7 @@ public interface UsersClient {
 	UserModel getUser(@PathVariable("userId") long userId);
 
 	@RequestMapping(method = RequestMethod.POST, value = "/user")
-	void saveUser(UserModel user);
+	UserModel saveUser(UserModel user);
 
 	//use saveUser
 	@Deprecated

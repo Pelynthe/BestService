@@ -19,5 +19,5 @@ public class UserModel {
 	String firstName;
 	String lastName;
 	String password;
-	List<String> role;
+	List<String> roles;
 }
