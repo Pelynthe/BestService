@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: Event-service
+  cloud:
+    config:
+      name: Config-service
+      uri: http://config:8888
+#      fail-fast: true
+#      password: ${CONFIG_SERVICE_PASSWORD}
+#      username: user
+
+#eureka:
+#  client:
+#    eureka-server-port: 8761

@@ -1,0 +1,23 @@
+#Eureka config
+eureka:
+  client:
+    eureka-server-port: 8761
+
+#Application config
+#spring.application.name=Event-service
+server:
+  port: 8084
+
+#DB properties:
+db:
+  driver: com.mysql.cj.jdbc.Driver
+#db.url=jdbc:mysql://localhost:3306/events?useSSL=no&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+#db.username=root
+#db.password=1*tSJ`T:<n?3Q7fEw%cf8rl[^2Mt5A}c34g[onR
+  url: jdbc:mysql://remotemysql.com:3306/MEm7KoLrPb?useSSL=no&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+  username: MEm7KoLrPb
+  password: k4MzNj8o3Q
+
+#Liquibase
+liquibase:
+  changelog: classpath:liquibase/master.db.changelog.xml

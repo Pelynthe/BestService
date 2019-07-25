@@ -18,7 +18,7 @@ import javax.sql.DataSource;
 @EntityScan("ru.sberbank.school.event.entity")
 @EnableJpaRepositories("ru.sberbank.school.event.repository")
 @EnableTransactionManagement
-@PropertySource("classpath:application.properties")
+//@PropertySource("classpath:application.yml")
 public class EventConfiguration {
 
     private static final String DB_DRIVER = "db.driver";

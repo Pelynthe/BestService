@@ -29,6 +29,7 @@
         <module>users-service</module>
         <module>web-service</module>
         <module>feign-example</module>
+        <module>config-service</module>
     </modules>
 
     <properties>

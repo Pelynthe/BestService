@@ -1,0 +1,20 @@
+##Eureka config
+#eureka:
+#  client:
+#    eureka-server-port: 8761
+
+#Application config
+spring:
+#  application:
+#    name: Config-service
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/shared
+  profiles:
+     active: native
+
+server:
+  port: 8888
+
