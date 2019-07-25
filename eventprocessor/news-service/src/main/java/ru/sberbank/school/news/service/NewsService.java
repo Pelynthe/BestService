@@ -10,9 +10,10 @@ public interface NewsService {
 
     List<NewsModel> getByEvent(long id);
 
-    void create(NewsModel news);
+    NewsModel save(NewsModel newsModel);
 
-    void update(NewsModel news);//TODO нужен?
+    @Deprecated
+    void update(NewsModel news);
 
     void delete(long id);
 }

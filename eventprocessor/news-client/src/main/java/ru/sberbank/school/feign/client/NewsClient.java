@@ -21,8 +21,9 @@ public interface NewsClient {
 	List<NewsModel> getNewsByEvent(@NonNull @PathVariable("id") long id);
 
 	@RequestMapping(method = POST, value = "/news")
-	void createNews(@NonNull NewsModel news);
+	NewsModel saveNews(@NonNull NewsModel news);
 
+	@Deprecated
 	@RequestMapping(method = PUT, value = "/news")
 	void updateNews(@NonNull NewsModel news);
 

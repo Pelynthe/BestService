@@ -3,6 +3,7 @@ package ru.sberbank.school.news.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.sberbank.school.feign.model.NewsModel;
 import ru.sberbank.school.news.converter.NewsConverter;
 import ru.sberbank.school.news.entity.News;
@@ -38,11 +39,16 @@ public class NewsServiceImpl implements NewsService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     @Override
-    public void create(NewsModel news) {
-        repository.save(converter.convertToEntity(news));
+    public NewsModel save(NewsModel newsModel) {
+        News news = converter.convertToEntity(newsModel);
+        repository.save(news);
+        return converter.convertToModel(news);
     }
 
+    @Deprecated
+    @Transactional
     @Override
     public void update(NewsModel news) {
         repository.deleteById(news.getId());

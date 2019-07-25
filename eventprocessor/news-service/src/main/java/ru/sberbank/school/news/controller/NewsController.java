@@ -1,5 +1,6 @@
 package ru.sberbank.school.news.controller;
 
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.sberbank.school.feign.model.NewsModel;
@@ -28,11 +29,13 @@ public class NewsController {
         return newsService.getByEvent(id);
     }
 
-    @PostMapping
-    public void createNews(@RequestBody NewsModel newsModel) {
-        newsService.create(newsModel);
+    @PostMapping(produces = APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public void saveNews(@NonNull @RequestBody NewsModel newsModel) {
+        newsService.save(newsModel);
     }
 
+    @Deprecated
     @PutMapping
     public void updateNews(@RequestBody NewsModel newsModel) {
         newsService.update(newsModel);
