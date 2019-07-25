@@ -10,7 +10,9 @@ import ru.sberbank.school.users.converter.UsersConverter;
 import ru.sberbank.school.users.entity.User;
 import ru.sberbank.school.users.repository.UsersRepository;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -36,6 +38,14 @@ public class UsersServiceImpl implements UsersService {
         return user.isPresent()
                 ? converter.convertToModel(user.get())
                 : new UserModel();
+    }
+
+    @Override
+    public List<UserModel> get(List<Long> ids) {
+        List<User> users = (List<User>) usersRepository.findAllById(ids);
+        return users.stream()
+                .map(converter::convertToModel)
+                .collect(Collectors.toList());
     }
 
     @Transactional
