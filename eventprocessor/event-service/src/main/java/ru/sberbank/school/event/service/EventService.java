@@ -14,6 +14,8 @@ public interface EventService {
 
     List<EventModel> getPrevious(long id);
 
+    List<EventModel> getByUser(long id);
+
     EventModel save(EventModel user);
 
     @Deprecated
