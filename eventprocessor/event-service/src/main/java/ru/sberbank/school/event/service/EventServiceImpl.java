@@ -53,6 +53,14 @@ public class EventServiceImpl implements EventService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<EventModel> getByUser(long id) {
+        List<Event> events = repository.getByUser(id);
+        return events.stream()
+                .map(converter::convertToModel)
+                .collect(Collectors.toList());
+    }
+
     @Transactional
     @Override
     public EventModel save(EventModel eventModel) {

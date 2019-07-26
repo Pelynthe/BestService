@@ -41,6 +41,13 @@ public class EventController {
         return eventService.getPrevious(id);
     }
 
+    @GetMapping(path = "byUser{id}", produces = APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public List<EventModel> getByUser(@PathVariable long id) {
+        return eventService.getByUser(id);
+    }
+
+
     @PostMapping(produces = APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
     public EventModel saveEvent(@NonNull @RequestBody EventModel EventModel) {
