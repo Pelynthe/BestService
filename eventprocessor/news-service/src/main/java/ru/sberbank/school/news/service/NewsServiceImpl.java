@@ -50,9 +50,9 @@ public class NewsServiceImpl implements NewsService {
     @Deprecated
     @Transactional
     @Override
-    public void update(NewsModel news) {
-        repository.deleteById(news.getId());
-        repository.save(converter.convertToEntity(news));
+    public void update(NewsModel newsModel) {
+        repository.deleteById(newsModel.getId());
+        repository.save(converter.convertToEntity(newsModel));
     }
 
     @Override
