@@ -31,8 +31,8 @@ public class NewsController {
 
     @PostMapping(produces = APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public void saveNews(@NonNull @RequestBody NewsModel newsModel) {
-        newsService.save(newsModel);
+    public NewsModel saveNews(@NonNull @RequestBody NewsModel newsModel) {
+        return newsService.save(newsModel);
     }
 
     @Deprecated

@@ -26,6 +26,9 @@ public interface EventClient {
 	@RequestMapping(method = GET, value = "/event/previous{id}", produces = APPLICATION_JSON_UTF8_VALUE)
 	List<EventModel> getPrevious(long id);
 
+	@RequestMapping(method = GET, value = "/event/byUser{id}", produces = APPLICATION_JSON_UTF8_VALUE)
+	List<EventModel> getByUser(long id);
+
 	@RequestMapping(method = POST, value = "/event")
 	EventModel saveEvent(@NonNull EventModel event);
 
