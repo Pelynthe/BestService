@@ -15,7 +15,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 public interface NewsClient {
 
 	@RequestMapping(method = RequestMethod.GET, value = "/news/{id}", produces = APPLICATION_JSON_UTF8_VALUE)
-	NewsModel getNews(@NonNull @PathVariable("Id") long id);
+	NewsModel getNews(@NonNull @PathVariable("id") long id);
 
 	@RequestMapping(method = RequestMethod.GET, value = "/news/event{id}", produces = APPLICATION_JSON_UTF8_VALUE)
 	List<NewsModel> getNewsByEvent(@NonNull @PathVariable("id") long id);
@@ -28,5 +28,5 @@ public interface NewsClient {
 	void updateNews(@NonNull NewsModel news);
 
 	@RequestMapping(method =  RequestMethod.DELETE, value = "/news/{id}")
-	void deleteNews(@NonNull @PathVariable("Id") long id);
+	void deleteNews(@NonNull @PathVariable("id") long id);
 }
